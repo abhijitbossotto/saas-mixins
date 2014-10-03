@@ -1,0 +1,23 @@
+/* Shadow */
+@mixin box-shadow($x, $y, $blur, $spread, $color, $inset)
+  @if ($inset != "")
+    -webkit-box-shadow: $inset $x $y $blur $spread $color
+    -moz-box-shadow:    $inset $x $y $blur $spread $color
+    box-shadow:         $inset $x $y $blur $spread $color
+  @else
+    -webkit-box-shadow: $x $y $blur $spread $color
+    -moz-box-shadow:    $x $y $blur $spread $color
+    box-shadow:         $x $y $blur $spread $color
+
+/* Radius */
+@mixin border-radius ($top, $right, $bottom, $left)
+  -webkit-border-radius: $top $right $bottom $left
+  -moz-border-radius:    $top $right $bottom $left
+  border-radius:         $top $right $bottom $left
+
+/* Gradiant Color */
+@mixin gradient($from, $to)
+  background: $from
+  background: -webkit-gradient(linear, left top, left bottom, from($from), to($to))
+  background: -moz-linear-gradient(top,  $from, $to)
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}')
